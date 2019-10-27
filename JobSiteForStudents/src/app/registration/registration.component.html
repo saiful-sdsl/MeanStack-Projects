@@ -1,0 +1,237 @@
+<p>Please insert your information to register.</p>
+
+<!-- First Name -->
+<form>
+  <div class="form-group">
+    <label for="firstName">First Name <br /></label>
+    <input
+      required
+      minlength="2"
+      maxlength="25"
+      ngModel
+      name="firstName"
+      #firstName="ngModel"
+      (change)="logName(firstName)"
+      id="firstName"
+      type="text"
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.touched && !firstName.valid"
+    >
+      <div *ngIf="firstName.errors.required">First name is required.</div>
+      <div *ngIf="firstName.errors.minlength">
+        First name should be minimum
+        {{ firstName.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="firstName.errors.maxlength">
+        First name exceeded max length.
+      </div>
+      <div *ngIf="firstName.errors.pattern">
+        First name does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+  <!-- Last Name -->
+
+  <div class="form-group">
+    <label for="lastName">Last Name <br /></label>
+    <input
+      required
+      minlength="1"
+      maxlength="25"
+      ngModel
+      name="lastName"
+      #lastName="ngModel"
+      (change)="logName(lastName)"
+      id="lastName"
+      type="text"
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="lastName.touched && !lastName.valid"
+    >
+      <div *ngIf="lastName.errors.required">Last name is required.</div>
+      <div *ngIf="lastName.errors.minlength">
+        Last name should be minimum
+        {{ lastName.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="lastName.errors.maxlength">
+        First name exceeded max length.
+      </div>
+      <div *ngIf="lastName.errors.pattern">
+        Last name does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+<!-- Email -->
+
+<div class="form-group">
+        <label for="email">Email <br /></label>
+        <input
+          required
+          minlength="3"
+          maxlength="50"
+          ngModel
+          name="email"
+          #email="ngModel"
+          (change)="logName(email)"
+          id="email"
+          type="text"
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="email.touched && !email.valid"
+        >
+          <div *ngIf="email.errors.required">Email is required.</div>
+          <div *ngIf="email.errors.minlength">
+            Email should be minimum
+            {{ email.errors.minlength.requiredLength }} characters.
+          </div>
+          <div *ngIf="email.errors.maxlength">
+            Email exceeded max length.
+          </div>
+          <div *ngIf="email.errors.pattern">
+            Email does not match the pattern.
+          </div>
+        </div>
+      </div>
+    
+
+
+<!-- Specialization -->
+
+<div class="form-group">
+        <label for="specialization">Specialization (should be comma seperated) <br /></label>
+        <input
+          required
+          minlength="2"
+          maxlength="200"
+          ngModel
+          name="specialization"
+          #specialization="ngModel"
+          (change)="logName(specialization)"
+          id="specialization"
+          type="text"
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="specialization.touched && !specialization.valid"
+        >
+          <div *ngIf="specialization.errors.required">Specialization is required.</div>
+          <div *ngIf="specialization.errors.minlength">
+                Specialization should be minimum
+            {{ specialization.errors.minlength.requiredLength }} characters.
+          </div>
+          <div *ngIf="specialization.errors.maxlength">
+                Specialization exceeded max length.
+          </div>
+          <div *ngIf="specialization.errors.pattern">
+            Specialization does not match the pattern.
+          </div>
+        </div>
+      </div>
+    
+
+
+<!-- Education -->
+
+<div class="form-group">
+  <label for="education">Heighest Education (including Program and CGPA)<br /></label>
+  <input
+    required
+    minlength="2"
+    maxlength="500"
+    ngModel
+    name="education"
+    #education="ngModel"
+    (change)="logName(education)"
+    id="education"
+    type="text"
+    class="form-control"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="education.touched && !education.valid"
+  >
+    <div *ngIf="education.errors.required">Education is required.</div>
+    <div *ngIf="education.errors.minlength">
+      Education should be minimum
+      {{ education.errors.minlength.requiredLength }} characters.
+    </div>
+    <div *ngIf="education.errors.maxlength">
+      Education exceeded max length.
+    </div>
+    <div *ngIf="education.errors.pattern">
+      Education does not match the pattern.
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Contact No. -->
+
+<div class="form-group">
+  <label for="phoneNumber">Phone number<br /></label>
+  <input
+    required
+    minlength="8"
+    maxlength="15"
+    ngModel
+    name="phoneNumber"
+    #phoneNumber="ngModel"
+    (change)="logName(phoneNumber)"
+    id="phoneNumber"
+    type="text"
+    placeholder="+14705261846" 
+    class="form-control"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="phoneNumber.touched && !phoneNumber.valid"
+  >
+    <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
+    <div *ngIf="phoneNumber.errors.minlength">
+      Phone number should be minimum
+      {{ phoneNumber.errors.minlength.requiredLength }} characters.
+    </div>
+    <div *ngIf="phoneNumber.errors.maxlength">
+      Phone number exceeded max length.
+    </div>
+    <div *ngIf="phoneNumber.errors.pattern">
+      Phone number does not match the pattern.
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Self Description -->
+
+  <div class="form-group">
+    <label for="comment">Self Introduction <br /></label>
+    <textarea
+      ngModel
+      name="comment"
+      #comment="ngModel"
+      (change)="logComment(comment)"
+      id="comment"
+      cols="30"
+      rows="10"
+      class="form-control"
+    ></textarea>
+  </div>
+
+  <button class="btn btn-primary">Register</button>
+  <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label>
+  
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
+</form>
