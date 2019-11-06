@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {padding: 20px;}
 .form-control.ng-invalid.ng-touched {
@@ -11,3 +12,19 @@ border: 2px solid red;
     color: blue;
     text-decoration: underline;
 }
+
+.image{
+    background-size:cover;
+    background-image: url('assets/header_background.JPG');
+    background-repeat: no-repeat;
+      background-position: 0%;
+      width: cover;
+      height: 400px;
+  }
+
+  .login-main{
+    margin-top: 10%;
+    }
+    mat-card{
+    min-width: 40%;
+    }

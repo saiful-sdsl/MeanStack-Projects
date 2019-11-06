@@ -1,5 +1,4 @@
-<p>Please insert your information to register.</p>
-
+<label >Please insert your information to register.</label>
 <!-- First Name -->
 <form>
   <div class="form-group">
@@ -14,6 +13,7 @@
       (change)="logName(firstName)"
       id="firstName"
       type="text"
+      placeholder={{firstNameHint}}
       class="form-control"
     />
     <div
@@ -48,6 +48,7 @@
       (change)="logName(lastName)"
       id="lastName"
       type="text"
+      placeholder={{lastNameHint}}
       class="form-control"
     />
     <div
@@ -82,6 +83,7 @@
           (change)="logName(email)"
           id="email"
           type="text"
+          placeholder={{emailHint}}
           class="form-control"
         />
         <div
@@ -118,6 +120,7 @@
           (change)="logName(specialization)"
           id="specialization"
           type="text"
+          placeholder={{specializationHint}}
           class="form-control"
         />
         <div
@@ -154,6 +157,7 @@
     (change)="logName(education)"
     id="education"
     type="text"
+    placeholder={{highestEducationLevelHint}}
     class="form-control"
   />
   <div
@@ -190,7 +194,7 @@
     (change)="logName(phoneNumber)"
     id="phoneNumber"
     type="text"
-    placeholder="+14705261846" 
+    placeholder={{phoneNumberHint}}
     class="form-control"
   />
   <div
@@ -225,12 +229,16 @@
       (change)="logComment(comment)"
       id="comment"
       cols="30"
-      rows="10"
+      rows="5"
+      placeholder={{introHint}}
       class="form-control"
     ></textarea>
   </div>
 
-  <button class="btn btn-primary">Register</button>
+  <!-- <button class="btn btn-primary">Register</button> -->
+  <button 
+  class="btn btn-primary"
+  (click)="onClick()">Register</button>
   <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label>
   
 <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
