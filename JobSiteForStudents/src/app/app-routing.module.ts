@@ -1,3 +1,4 @@
+import { RandomgenComponent } from './randomgen/randomgen.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'jobs', component: SearchjobsComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'aboutus', component: AboutusComponent }
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'randomgenerator', component: RandomgenComponent }
 
   // {path : '', component : LoginComponent}
 

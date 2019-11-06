@@ -13,6 +13,16 @@ border: 2px solid red;
     text-decoration: underline;
 }
 
+.failedstyle {
+  color: red;
+}
+
+.goodscore {
+  color: green;
+}
+.passedscore {
+  color: rgb(11, 126, 219);
+}
 .image{
     background-size:cover;
     background-image: url('assets/header_background.JPG');

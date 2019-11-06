@@ -1,0 +1,21 @@
+<button mat-raised-button (click)='generateRandom()'>Click to generate random number</button>
+<br/>
+<p><strong>{{randomNumberMessage}}</strong></p>
+
+<div [ngSwitch]="switchHelper()">
+  <div *ngSwitchCase="'A'">
+    <p class="goodscore"><strong>Your Grade: A.</strong></p>
+  </div>
+  <div *ngSwitchCase="'B'">
+    <p class="passedscore"><strong>Your Grade: B.</strong></p>
+  </div>
+  <div *ngSwitchCase="'C'">
+    <p class="passedscore"><strong>Your Grade: C.</strong></p>
+  </div>
+  <div *ngSwitchCase="'D'">
+    <p class="passedscore"><strong>Your Grade: D.</strong></p>
+  </div>
+  <div *ngSwitchCase="'F'">
+    <p class="failedstyle"><strong>You Failed.</strong></p>
+  </div>
+</div>

@@ -18,6 +18,7 @@ import { AboutusComponent } from "./aboutus/aboutus.component";
 import { SearchjobsComponent } from "./searchjobs/searchjobs.component";
 import { StudentprofilesComponent } from "./studentprofiles/studentprofiles.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RandomgenComponent } from './randomgen/randomgen.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AboutusComponent,
     SearchjobsComponent,
     StudentprofilesComponent,
-    DashboardComponent
+    DashboardComponent,
+    RandomgenComponent
   ],
   imports: [
     CommonModule,
