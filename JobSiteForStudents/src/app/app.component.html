@@ -1,45 +1,46 @@
 <div class="image"></div>
 <h3></h3>
 <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            [class.active]="viewModel == 'Home'"
-            routerLink="/login"
-            (click)="viewModel = 'Home'"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [class.active]="viewModel == 'Registration'"
-            routerLink="/registration"
-            (click)="viewModel = 'Registration'"
-            >Registration</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [class.active]="viewModel == 'Jobs'"
-            routerLink="/jobs"
-            (click)="viewModel = 'Jobs'"
-            >Jobs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [class.active]="viewModel == 'About us'"
-            routerLink="/aboutus"
-            (click)="viewModel = 'About us'"
-            >About us</a
-          >
-        </li>
-      </ul>
-      <h3></h3>
-      <!-- <div [ngSwitch]="viewModel">
+  <li class="nav-item">
+    <a
+      class="nav-link active"
+      [class.active]="viewModel == 'Home'"
+      routerLink="/login"
+      (click)="viewModel = 'Home'"
+      >Home</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [class.active]="viewModel == 'Registration'"
+      routerLink="/registration"
+      (click)="viewModel = 'Registration'"
+      >Registration</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [class.active]="viewModel == 'Jobs'"
+      routerLink="/jobs"
+      (click)="viewModel = 'Jobs'"
+      >Jobs</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [class.active]="viewModel == 'About us'"
+      routerLink="/aboutus"
+      (click)="viewModel = 'About us'"
+      >About us</a
+    >
+  </li>
+</ul>
+<h3></h3>
+
+<!-- <div [ngSwitch]="viewModel">
         <div *ngSwitchCase="'Home'">
           <app-login></app-login>
         </div>
@@ -53,5 +54,17 @@
           <app-aboutus></app-aboutus>
         </div>
       </div> -->
-      
+
+<input
+  type="text"
+  class="form-control"
+  placeholder="{{ cardNumberInputHint }}"
+  [(ngModel)]="cardNumberInput"
+/>
+<p class="passedstyle">Entered card number: {{ cardNumberInput }}</p>
+<!-- <p class="passedstyle">
+  <strong >Card Type: {{ cardName }}</strong>
+</p> -->
+<img appDetectcardtype [cardNumber]="cardNumberInput" width="300" />
+
 <router-outlet></router-outlet>

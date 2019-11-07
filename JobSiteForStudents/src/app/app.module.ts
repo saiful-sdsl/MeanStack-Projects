@@ -20,6 +20,7 @@ import { StudentprofilesComponent } from "./studentprofiles/studentprofiles.comp
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RandomgenComponent } from './randomgen/randomgen.component';
 import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.component';
+import { DetectcardtypeDirective } from './detectcardtype.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.c
     StudentprofilesComponent,
     DashboardComponent,
     RandomgenComponent,
-    CardtypedetectorComponent
+    CardtypedetectorComponent,
+    DetectcardtypeDirective
   ],
   imports: [
     CommonModule,
