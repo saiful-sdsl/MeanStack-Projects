@@ -1,3 +1,4 @@
+import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.component';
 import { RandomgenComponent } from './randomgen/randomgen.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'jobs', component: SearchjobsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aboutus', component: AboutusComponent },
-  { path: 'randomgenerator', component: RandomgenComponent }
+  { path: 'randomgenerator', component: RandomgenComponent },
+  { path: 'cardtypedetector', component: CardtypedetectorComponent }
 
   // {path : '', component : LoginComponent}
 

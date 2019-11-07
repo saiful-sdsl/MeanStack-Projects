@@ -10,6 +10,7 @@ export class RandomgenComponent implements OnInit {
 randomNumber:number = 0;
 grade: string = "F";
 
+
   constructor() { }
 
   ngOnInit() {
@@ -34,5 +35,6 @@ grade: string = "F";
     if (this.randomNumber >=90 && this.randomNumber <= 100)
     return "A";
   }
+
 
 }

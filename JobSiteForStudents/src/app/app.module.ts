@@ -19,6 +19,7 @@ import { SearchjobsComponent } from "./searchjobs/searchjobs.component";
 import { StudentprofilesComponent } from "./studentprofiles/studentprofiles.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RandomgenComponent } from './randomgen/randomgen.component';
+import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RandomgenComponent } from './randomgen/randomgen.component';
     SearchjobsComponent,
     StudentprofilesComponent,
     DashboardComponent,
-    RandomgenComponent
+    RandomgenComponent,
+    CardtypedetectorComponent
   ],
   imports: [
     CommonModule,

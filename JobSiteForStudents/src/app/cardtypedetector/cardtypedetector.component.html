@@ -1,0 +1,58 @@
+
+<div>
+    <input
+      ngModel
+      name="cardType"
+      #cardType="ngModel"
+      (input)="onChangeInput($event.target.value)"
+      id="cardType"
+      type="text"
+      placeholder="{{ cardNumberInputHint }}"
+      class="form-control"
+      pattern="[0-9]*"
+      minlength="16"
+      maxlength="16"
+    />
+    
+  
+    <div class="alert alert-danger" *ngIf="cardType.touched && !cardType.valid">
+      <div *ngIf="cardType.errors.pattern">
+        Card number should only contain numbers.
+      </div>
+      <div *ngIf="cardType.errors.minlength">
+        Card number should be minimum
+        {{ cardType.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="cardType.errors.maxlength">
+        Card number should be maximum
+        {{ cardType.errors.minlength.requiredLength }} characters.
+      </div>
+    </div>
+    <p class="passedstyle">
+      <strong>Entered card number: {{ cardNumber }}</strong>
+    </p>
+    <p class="passedstyle">
+      <strong>Card Type: {{ cardName }}</strong>
+    </p>
+    
+  
+    <div [ngSwitch]="cardName">
+      <div *ngSwitchCase="'VISA'">
+        <img width="300" alt="image" src="assets/visa_cc.JPG">
+      </div>
+      <div *ngSwitchCase="'Discover'">
+        <img width="300" alt="image" src="assets/discover_cc.JPG">
+      </div>
+      <div *ngSwitchCase="'Diners'">
+        <img width="300" alt="image" src="assets/diners_cc.JPG">
+      </div>
+      <div *ngSwitchCase="'Amex'">
+        <img width="300" alt="image" src="assets/amex_cc.JPG">
+      </div>
+      <div *ngSwitchCase="'MasterCard'">
+        <img width="300" alt="image" src="assets/mastercard_cc.JPG">
+      </div>
+    </div>
+  
+  </div>
+  

@@ -1,6 +1,10 @@
-<button mat-raised-button (click)='generateRandom()'>Click to generate random number</button>
-<br/>
-<p><strong>{{randomNumberMessage}}</strong></p>
+<button mat-raised-button (click)="generateRandom()">
+  Click to generate random number
+</button>
+<br />
+<p>
+  <strong>{{ randomNumberMessage }}</strong>
+</p>
 
 <div [ngSwitch]="switchHelper()">
   <div *ngSwitchCase="'A'">
