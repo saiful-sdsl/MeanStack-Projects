@@ -13,6 +13,18 @@ border: 2px solid red;
     text-decoration: underline;
 }
 
+.mat-divider {
+  display: block;
+  margin: 0;
+  border-top-color: lightskyblue;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.mat-list-item {
+  height: 200px !important; /** experiment with height **/
+}
+
 .failedstyle {
   color: red;
 }

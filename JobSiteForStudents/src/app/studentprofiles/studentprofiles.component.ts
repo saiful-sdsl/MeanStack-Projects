@@ -7,8 +7,7 @@ import { StudentService } from "../student.service";
   styleUrls: ["./studentprofiles.component.css"]
 })
 export class StudentprofilesComponent implements OnInit {
-  title = "Design Studio Course";
-  cardNumberInputHint: string = "Enter card number here";
+  title = "Design Studio Course Lab9";
   viewModel = "Home";
   public students;
 
@@ -21,17 +20,11 @@ export class StudentprofilesComponent implements OnInit {
   getStudents() {
     this.studentService.getStudents().subscribe(
       data => {
+        console.log('Loaded student list from server.');
         this.students = data;
       },
       err => console.error(err),
       () => console.log("Finished loading")
     );
-  }
-
-  onDelete(id: string) {
-    console.log("onDelete item triggered. id: " + id);
-    this.studentService.deleteStudent(id).subscribe(()=>{
-      
-    });
   }
 }

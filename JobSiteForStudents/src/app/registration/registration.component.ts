@@ -9,9 +9,7 @@ import { StudentService } from '../student.service';
 export class RegistrationComponent implements OnInit{
 
   constructor(private studentService: StudentService){ }
-  ngOnInit(){
-
-  }
+  ngOnInit(){  }
 
   minCharacterLength: number = 2;
   firstNameHint: string = 'Enter first name'
@@ -22,7 +20,6 @@ export class RegistrationComponent implements OnInit{
   phoneNumberHint: string = 'Enter your phone number'
   introHint: string = 'Tell us about yourself'
   studentIDHint: string = 'Please enter student ID'
-
 
   @Input() firstName: string = "";
   @Input() lastName: string = "";
@@ -43,8 +40,8 @@ export class RegistrationComponent implements OnInit{
   }
 
   onClick() {
-    this.studentService.addStudent(this.studentID, this.firstName, this.lastName);
+    this.studentService.addStudent(this.studentID, this.firstName, this.lastName, this.email, this.specialization, this.education, this.phoneNumber, this.selfIntro);
     console.log("You entered below info > " + "\nFirst Name: " + this.firstName + "\nLast Name: "+ this.lastName + "\nEmail: "+ this.email + "\nSpecialization: "+this.specialization +"\nEducation: "+ this.education +"\nPhone: "+ this.phoneNumber +"\nIntro: "+ this.selfIntro);
-    alert("You entered below info > " + "\nFirst Name: " + this.firstName + "\nLast Name: "+ this.lastName + "\nEmail: "+ this.email + "\nSpecialization: "+this.specialization +"\nEducation: "+ this.education +"\nPhone: "+ this.phoneNumber +"\nIntro: "+ this.selfIntro);
+    //alert("You entered below info > " + "\nFirst Name: " + this.firstName + "\nLast Name: "+ this.lastName + "\nEmail: "+ this.email + "\nSpecialization: "+this.specialization +"\nEducation: "+ this.education +"\nPhone: "+ this.phoneNumber +"\nIntro: "+ this.selfIntro);
   }
 }

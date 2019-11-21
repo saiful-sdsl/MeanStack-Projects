@@ -16,11 +16,11 @@ export class StudentService {
     return this.http.get(this.geturl);
   }
 
-  addStudent(id: string, firstName: string, lastName: string) {
+  addStudent(id: string, firstName: string, lastName: string, email: string, specialization: string, education: string, phoneNumber: string, selfIntro: string) {
     this.http
-      .post(this.geturl, { id, firstName, lastName })
+      .post(this.geturl, { id, firstName, lastName, email, specialization, education, phoneNumber, selfIntro })
       .subscribe(responseData => {
-        console.log(responseData);
+        console.log("Client received response from server: "+ responseData);
       });
   }
 
