@@ -7,6 +7,7 @@ import { SearchjobsComponent } from './searchjobs/searchjobs.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { StudentprofilesComponent } from './studentprofiles/studentprofiles.component';
 
 const routes: Routes = [
 
@@ -16,9 +17,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'randomgenerator', component: RandomgenComponent },
-  { path: 'cardtypedetector', component: CardtypedetectorComponent }
-
-  // {path : '', component : LoginComponent}
+  { path: 'cardtypedetector', component: CardtypedetectorComponent },
+  { path: 'students', component: StudentprofilesComponent },
+  { path : '', component : LoginComponent}
 
 ];
 // const routes: Routes = [];

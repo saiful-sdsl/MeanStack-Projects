@@ -21,6 +21,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RandomgenComponent } from './randomgen/randomgen.component';
 import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.component';
 import { DetectcardtypeDirective } from './detectcardtype.directive';
+import { StudentService } from './student.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -47,9 +50,10 @@ import { DetectcardtypeDirective } from './detectcardtype.directive';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

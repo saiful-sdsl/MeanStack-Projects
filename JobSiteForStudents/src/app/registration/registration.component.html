@@ -1,3 +1,4 @@
+<h2>New Student Registration <br></h2>
 <label >Please insert your information to register.</label>
 <!-- First Name -->
 <form>
@@ -7,9 +8,8 @@
       required
       minlength="2"
       maxlength="25"
-      ngModel
+      [(ngModel)]="firstName"
       name="firstName"
-      #firstName="ngModel"
       (change)="logName(firstName)"
       id="firstName"
       type="text"
@@ -42,9 +42,8 @@
       required
       minlength="1"
       maxlength="25"
-      ngModel
+      [(ngModel)]="lastName"
       name="lastName"
-      #lastName="ngModel"
       (change)="logName(lastName)"
       id="lastName"
       type="text"
@@ -69,6 +68,42 @@
     </div>
   </div>
 
+
+  <!-- Student ID -->
+
+  <div class="form-group">
+    <label for="studentID">Student ID<br /></label>
+    <input
+      required
+      minlength="4"
+      maxlength="25"
+      [(ngModel)]="studentID"
+      name="studentID"
+      (change)="logName(studentID)"
+      id="studentID"
+      type="text"
+      placeholder={{studentIDHint}}
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="studentID.touched && !studentID.valid"
+    >
+      <div *ngIf="studentID.errors.required">Student ID is required.</div>
+      <div *ngIf="studentID.errors.minlength">
+        Student ID should be minimum
+        {{ studentID.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="studentID.errors.maxlength">
+        Student ID exceeded max length.
+      </div>
+      <div *ngIf="studentID.errors.pattern">
+        Student ID does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+
 <!-- Email -->
 
 <div class="form-group">
@@ -77,9 +112,8 @@
           required
           minlength="3"
           maxlength="50"
-          ngModel
+          [(ngModel)] = "email"
           name="email"
-          #email="ngModel"
           (change)="logName(email)"
           id="email"
           type="text"
@@ -114,9 +148,8 @@
           required
           minlength="2"
           maxlength="200"
-          ngModel
+          [(ngModel)] = "specialization"
           name="specialization"
-          #specialization="ngModel"
           (change)="logName(specialization)"
           id="specialization"
           type="text"
@@ -151,9 +184,8 @@
     required
     minlength="2"
     maxlength="500"
-    ngModel
+    [(ngModel)] = "education"
     name="education"
-    #education="ngModel"
     (change)="logName(education)"
     id="education"
     type="text"
@@ -188,9 +220,8 @@
     required
     minlength="8"
     maxlength="15"
-    ngModel
+    [(ngModel)] = "phoneNumber"
     name="phoneNumber"
-    #phoneNumber="ngModel"
     (change)="logName(phoneNumber)"
     id="phoneNumber"
     type="text"
@@ -223,9 +254,8 @@
   <div class="form-group">
     <label for="comment">Self Introduction <br /></label>
     <textarea
-      ngModel
+      [(ngModel)] = "selfIntro"
       name="comment"
-      #comment="ngModel"
       (change)="logComment(comment)"
       id="comment"
       cols="30"
