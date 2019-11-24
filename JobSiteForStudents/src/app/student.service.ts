@@ -33,12 +33,7 @@ export class StudentService {
   }
 
   deleteStudent(studentId: string) {
-    this.http.delete(this.geturl + "/" + studentId).subscribe(() => {
-      console.log("Deleted: " + studentId);
-      setTimeout(function(){
-        location.reload();
-      }, 200);
-    });
+   return this.http.delete(this.geturl + "/" + studentId);
     //location.reload();
   }
 }

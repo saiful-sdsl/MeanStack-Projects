@@ -30,8 +30,11 @@ export class StudentprofilesComponent implements OnInit {
 
   onDelete(id: string) {
     console.log("onDelete item triggered. id: " + id);
-    this.studentService.deleteStudent(id).subscribe(()=>{
-      
-    });
+    this.studentService.deleteStudent(id).subscribe(() => {
+      console.log("Deleted msg from profile.ts file : " + id);
+      setTimeout(function(){
+        location.reload();
+      }, 3000);
+    });;
   }
 }

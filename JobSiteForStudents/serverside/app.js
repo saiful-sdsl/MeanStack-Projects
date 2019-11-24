@@ -56,7 +56,7 @@ app.delete("/students/:id", (req, res, next) => {
   student
     .deleteOne({ id: req.params.id })
     .then(result => {
-      console.log(result);
+      console.log("Deleted msg: "+ result);
       res.status(200).json("A student has been Deleted! id: " + req.params.id);
     })
     .catch(err => {
