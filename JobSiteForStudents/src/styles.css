@@ -13,7 +13,7 @@ border: 2px solid red;
     text-decoration: underline;
 }
 .mat-list .mat-list-item {
-  height: 200px!important; /* default is 72px */
+  height: 250px!important; /* default is 72px */
 }
 
 .customM {

@@ -5,12 +5,15 @@ const student = require("./models/student");
 const app = express();
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*"); // can connect from any host.
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
-    console.log("This line will always called!!");
-    next();
-  });
+  res.setHeader("Access-Control-Allow-Origin", "*"); // can connect from any host.
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, DELETE, PUT, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
+  console.log("This line will always called!!");
+  next();
+});
 
 mongoose
   .connect("mongodb://localhost:27017/IT6203", { useNewUrlParser: true })
@@ -25,8 +28,6 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
-
-
 
 app.post("/students", (req, res, next) => {
   /*const student = req.body;
@@ -64,11 +65,40 @@ app.delete("/students/:id", (req, res, next) => {
     .deleteOne({ id: req.params.studentId })
     .then(result => {
       console.log(JSON.stringify(result));
-      res.status(200).json("A student has been Deleted! id: " + req.params.studentId);
+      res
+        .status(200)
+        .json("A student has been Deleted! id: " + req.params.studentId);
     })
     .catch(err => {
       console.log("A error occured while delete: " + err);
     });
+});
+
+app.put("/students/:id", (req, res, next) => {
+  console.log("Update a Student. ID : " + req.params.id);
+  student.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        specialization: req.body.specialization,
+        education: req.body.education,
+        phoneNumber: req.body.phoneNumber,
+        selfIntro: req.body.selfIntro
+      }
+    },
+    {
+      new: true
+    },
+    {
+      function(err, updatedStudent) {
+        if (err) return res.send("Error Updating student: " + err);
+        else return res.send.json("Update successful : " + updatedStudent);
+      }
+    }
+  );
 });
 
 app.use("/students", (req, res, next) => {
@@ -79,13 +109,6 @@ app.use("/students", (req, res, next) => {
       console.log("Error:${err}");
       res.status(500).json(err);
     });
-
-  /*const students = [
-    { id: "1", firstName: "John", lastName: "Doe" },
-    { id: "2", firstName: "Md Saiful", lastName: "Islam" },
-    { id: "3", firstName: "Sharaban", lastName: "Tahora" }
-  ];
-  res.json(students);*/
 });
 
 module.exports = app;

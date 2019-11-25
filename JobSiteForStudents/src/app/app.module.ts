@@ -23,6 +23,7 @@ import { CardtypedetectorComponent } from './cardtypedetector/cardtypedetector.c
 import { DetectcardtypeDirective } from './detectcardtype.directive';
 import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdatestudentComponent } from './updatestudent/updatestudent.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     RandomgenComponent,
     CardtypedetectorComponent,
-    DetectcardtypeDirective
+    DetectcardtypeDirective,
+    UpdatestudentComponent
   ],
   imports: [
     CommonModule,

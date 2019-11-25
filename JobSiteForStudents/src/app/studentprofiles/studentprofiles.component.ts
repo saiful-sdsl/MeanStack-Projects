@@ -22,6 +22,7 @@ export class StudentprofilesComponent implements OnInit {
     this.studentService.getStudents().subscribe(
       data => {
         this.students = data;
+        console.log(JSON.stringify(this.students));
       },
       err => console.error(err),
       () => console.log("Finished loading")
@@ -36,5 +37,9 @@ export class StudentprofilesComponent implements OnInit {
         location.reload();
       }, 800);
     });;
+  }
+
+  onUpdate(id: string){
+    console.log('Go to updated student page. id: '  + id);
   }
 }
