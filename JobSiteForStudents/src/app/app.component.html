@@ -1,7 +1,7 @@
 <div class="image"></div>
 <h3></h3>
 <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
-  <li class="nav-item">
+ <!--  <li class="nav-item">
     <a
       class="nav-link active"
       [class.active]="viewModel == 'Home'"
@@ -9,23 +9,23 @@
       (click)="viewModel = 'Home'"
       >Home</a
     >
-  </li>
+  </li> -->
   <li class="nav-item">
     <a
-      class="nav-link"
+      class="nav-link active"
       [class.active]="viewModel == 'Registration'"
       routerLink="/registration"
       (click)="viewModel = 'Registration'"
-      >Registration</a
+      >Student Registration</a
     >
   </li>
   <li class="nav-item">
     <a
       class="nav-link"
       [class.active]="viewModel == 'Jobs'"
-      routerLink="/jobs"
+      routerLink="/students"
       (click)="viewModel = 'Jobs'"
-      >Jobs</a
+      >List of Student</a
     >
   </li>
   <li class="nav-item">
@@ -34,7 +34,7 @@
       [class.active]="viewModel == 'About us'"
       routerLink="/aboutus"
       (click)="viewModel = 'About us'"
-      >About us</a
+      >About me</a
     >
   </li>
 </ul>

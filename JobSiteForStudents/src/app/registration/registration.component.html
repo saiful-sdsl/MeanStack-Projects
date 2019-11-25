@@ -255,21 +255,31 @@
     <label for="comment">Self Introduction <br /></label>
     <textarea
       [(ngModel)] = "selfIntro"
-      name="comment"
-      (change)="logComment(comment)"
-      id="comment"
+      name="selfIntro"
+      minlength="8"
+      (change)="logComment(selfIntro)"
+      id="selfIntro"
       cols="30"
       rows="5"
       placeholder={{introHint}}
       class="form-control"
     ></textarea>
   </div>
-
+  <div
+  class="alert alert-danger"
+  *ngIf="selfIntro.touched && !selfIntro.valid"
+>
+  <div *ngIf="selfIntro.errors.required">Self intro is required.</div>
+  <div *ngIf="selfIntro.errors.minlength">
+    Self intro should be minimum
+    {{ selfIntro.errors.minlength.requiredLength }} characters.
+  </div>
+  </div>
   <!-- <button class="btn btn-primary">Register</button> -->
   <button 
   class="btn btn-primary"
   (click)="onClick()">Register</button>
-  <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label>
+<!--   <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label> -->
   
 <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
 </form>

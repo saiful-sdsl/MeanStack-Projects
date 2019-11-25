@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 
 mongoose
   .connect("mongodb://localhost:27017/IT6203", { useNewUrlParser: true })
+  //.connect("mongodb+srv://saiful_ksu:saifulksu1@cluster0-v96mz.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true })
   .then(() => {
     console.log("Mongo DB Successfully Connected.");
   })
@@ -35,9 +36,14 @@ app.post("/students", (req, res, next) => {
   );*/
 
   const aStudent = new student({
-    id: req.body.id,
+    studentID: req.body.studentID,
     firstName: req.body.firstName,
-    lastName: req.body.lastName
+    lastName: req.body.lastName,
+    email: req.body.email,
+    specialization: req.body.specialization,
+    education: req.body.education,
+    phoneNumber: req.body.phoneNumber,
+    selfIntro: req.body.selfIntro
   });
 
   aStudent
@@ -48,16 +54,17 @@ app.post("/students", (req, res, next) => {
     })
     .catch(err => {
       console.log("Failed to save student data. error: " + err);
+      res.status(201).json("Got an error while save: " + err);
     });
 });
 
 //:id is a dynamic parameter that will be extracted from the URL
 app.delete("/students/:id", (req, res, next) => {
   student
-    .deleteOne({ id: req.params.id })
+    .deleteOne({ id: req.params.studentId })
     .then(result => {
-      console.log("Deleted msg: "+ result);
-      res.status(200).json("A student has been Deleted! id: " + req.params.id);
+      console.log(JSON.stringify(result));
+      res.status(200).json("A student has been Deleted! id: " + req.params.studentId);
     })
     .catch(err => {
       console.log("A error occured while delete: " + err);

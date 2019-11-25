@@ -12,6 +12,20 @@ border: 2px solid red;
     color: blue;
     text-decoration: underline;
 }
+.mat-list .mat-list-item {
+  height: 200px!important; /* default is 72px */
+}
+
+.customM {
+  margin-left: 20px;
+  color: blue;
+}
+
+.mat-divider {
+  color: blue;
+  border-width: 1px;
+  border-style: solid;
+}
 
 .failedstyle {
   color: red;

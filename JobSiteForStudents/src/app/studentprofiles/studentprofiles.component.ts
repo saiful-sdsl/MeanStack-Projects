@@ -34,7 +34,7 @@ export class StudentprofilesComponent implements OnInit {
       console.log("Deleted msg from profile.ts file : " + id);
       setTimeout(function(){
         location.reload();
-      }, 3000);
+      }, 800);
     });;
   }
 }

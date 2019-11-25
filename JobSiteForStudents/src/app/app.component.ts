@@ -9,5 +9,5 @@ import { StudentService } from './student.service'
 export class AppComponent{
   title = "Design Studio Course";
   cardNumberInputHint: string = "Enter card number here";
-  viewModel = "Home";
+  viewModel = "Registration";
 }

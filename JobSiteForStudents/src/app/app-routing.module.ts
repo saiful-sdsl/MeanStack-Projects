@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'randomgenerator', component: RandomgenComponent },
   { path: 'cardtypedetector', component: CardtypedetectorComponent },
   { path: 'students', component: StudentprofilesComponent },
-  { path : '', component : LoginComponent}
+  { path : '', component : RegistrationComponent}
 
 ];
 // const routes: Routes = [];
