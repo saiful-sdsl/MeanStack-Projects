@@ -1,1 +1,285 @@
-<p>updatestudent works!</p>
+<h2>Edit Student Registration<br></h2>
+<label >Please insert your information to update.</label>
+<!-- First Name -->
+<form>
+  <div class="form-group">
+    <label for="firstName">First Name <br /></label>
+    <input
+      required
+      minlength="2"
+      maxlength="25"
+      [(ngModel)]="firstName"
+      name="firstName"
+      (change)="logName(firstName)"
+      id="firstName"
+      type="text"
+      value = "Name Sample"
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.touched && !firstName.valid"
+    >
+      <div *ngIf="firstName.errors.required">First name is required.</div>
+      <div *ngIf="firstName.errors.minlength">
+        First name should be minimum
+        {{ firstName.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="firstName.errors.maxlength">
+        First name exceeded max length.
+      </div>
+      <div *ngIf="firstName.errors.pattern">
+        First name does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+  <!-- Last Name -->
+
+  <div class="form-group">
+    <label for="lastName">Last Name <br /></label>
+    <input
+      required
+      minlength="1"
+      maxlength="25"
+      [(ngModel)]="lastName"
+      name="lastName"
+      (change)="logName(lastName)"
+      id="lastName"
+      type="text"
+      placeholder={{lastNameHint}}
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="lastName.touched && !lastName.valid"
+    >
+      <div *ngIf="lastName.errors.required">Last name is required.</div>
+      <div *ngIf="lastName.errors.minlength">
+        Last name should be minimum
+        {{ lastName.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="lastName.errors.maxlength">
+        First name exceeded max length.
+      </div>
+      <div *ngIf="lastName.errors.pattern">
+        Last name does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Student ID -->
+
+  <div class="form-group">
+    <label for="studentID">Student ID<br /></label>
+    <input
+      required
+      minlength="4"
+      maxlength="25"
+      [(ngModel)]="studentID"
+      name="studentID"
+      (change)="logName(studentID)"
+      id="studentID"
+      type="text"
+      placeholder={{studentIDHint}}
+      class="form-control"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="studentID.touched && !studentID.valid"
+    >
+      <div *ngIf="studentID.errors.required">Student ID is required.</div>
+      <div *ngIf="studentID.errors.minlength">
+        Student ID should be minimum
+        {{ studentID.errors.minlength.requiredLength }} characters.
+      </div>
+      <div *ngIf="studentID.errors.maxlength">
+        Student ID exceeded max length.
+      </div>
+      <div *ngIf="studentID.errors.pattern">
+        Student ID does not match the pattern.
+      </div>
+    </div>
+  </div>
+
+
+<!-- Email -->
+
+<div class="form-group">
+        <label for="email">Email <br /></label>
+        <input
+          required
+          minlength="3"
+          maxlength="50"
+          [(ngModel)] = "email"
+          name="email"
+          (change)="logName(email)"
+          id="email"
+          type="text"
+          placeholder={{emailHint}}
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="email.touched && !email.valid"
+        >
+          <div *ngIf="email.errors.required">Email is required.</div>
+          <div *ngIf="email.errors.minlength">
+            Email should be minimum
+            {{ email.errors.minlength.requiredLength }} characters.
+          </div>
+          <div *ngIf="email.errors.maxlength">
+            Email exceeded max length.
+          </div>
+          <div *ngIf="email.errors.pattern">
+            Email does not match the pattern.
+          </div>
+        </div>
+      </div>
+    
+
+
+<!-- Specialization -->
+
+<div class="form-group">
+        <label for="specialization">Specialization (should be comma seperated) <br /></label>
+        <input
+          required
+          minlength="2"
+          maxlength="200"
+          [(ngModel)] = "specialization"
+          name="specialization"
+          (change)="logName(specialization)"
+          id="specialization"
+          type="text"
+          placeholder={{specializationHint}}
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="specialization.touched && !specialization.valid"
+        >
+          <div *ngIf="specialization.errors.required">Specialization is required.</div>
+          <div *ngIf="specialization.errors.minlength">
+                Specialization should be minimum
+            {{ specialization.errors.minlength.requiredLength }} characters.
+          </div>
+          <div *ngIf="specialization.errors.maxlength">
+                Specialization exceeded max length.
+          </div>
+          <div *ngIf="specialization.errors.pattern">
+            Specialization does not match the pattern.
+          </div>
+        </div>
+      </div>
+    
+
+
+<!-- Education -->
+
+<div class="form-group">
+  <label for="education">Heighest Education (including Program and CGPA)<br /></label>
+  <input
+    required
+    minlength="2"
+    maxlength="500"
+    [(ngModel)] = "education"
+    name="education"
+    (change)="logName(education)"
+    id="education"
+    type="text"
+    placeholder={{highestEducationLevelHint}}
+    class="form-control"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="education.touched && !education.valid"
+  >
+    <div *ngIf="education.errors.required">Education is required.</div>
+    <div *ngIf="education.errors.minlength">
+      Education should be minimum
+      {{ education.errors.minlength.requiredLength }} characters.
+    </div>
+    <div *ngIf="education.errors.maxlength">
+      Education exceeded max length.
+    </div>
+    <div *ngIf="education.errors.pattern">
+      Education does not match the pattern.
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Contact No. -->
+
+<div class="form-group">
+  <label for="phoneNumber">Phone number<br /></label>
+  <input
+    required
+    minlength="8"
+    maxlength="15"
+    [(ngModel)] = "phoneNumber"
+    name="phoneNumber"
+    (change)="logName(phoneNumber)"
+    id="phoneNumber"
+    type="text"
+    placeholder={{phoneNumberHint}}
+    class="form-control"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="phoneNumber.touched && !phoneNumber.valid"
+  >
+    <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
+    <div *ngIf="phoneNumber.errors.minlength">
+      Phone number should be minimum
+      {{ phoneNumber.errors.minlength.requiredLength }} characters.
+    </div>
+    <div *ngIf="phoneNumber.errors.maxlength">
+      Phone number exceeded max length.
+    </div>
+    <div *ngIf="phoneNumber.errors.pattern">
+      Phone number does not match the pattern.
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Self Description -->
+
+  <div class="form-group">
+    <label for="comment">Self Introduction <br /></label>
+    <textarea
+      [(ngModel)] = "selfIntro"
+      name="selfIntro"
+      minlength="8"
+      (change)="logComment(selfIntro)"
+      id="selfIntro"
+      cols="30"
+      rows="5"
+      placeholder={{introHint}}
+      class="form-control"
+    ></textarea>
+  </div>
+  <div
+  class="alert alert-danger"
+  *ngIf="selfIntro.touched && !selfIntro.valid"
+>
+  <div *ngIf="selfIntro.errors.required">Self intro is required.</div>
+  <div *ngIf="selfIntro.errors.minlength">
+    Self intro should be minimum
+    {{ selfIntro.errors.minlength.requiredLength }} characters.
+  </div>
+  </div>
+  <!-- <button class="btn btn-primary">Register</button> -->
+  <button 
+  class="btn btn-primary"
+  (click)="onUpdateClick()">Update</button>
+<!--   <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label> -->
+  
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
+</form>

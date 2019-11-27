@@ -1,11 +1,3 @@
-<!-- <h2>Student List</h2>
-<div>
-    <ul *ngFor ="let student of students let i = index">
-      <li>{{student.id}}. {{student.lastName}}, {{student.firstName}} <button mat-button color="warn" (click)="onDelete(student.id)">DELETE</button></li>
-    </ul>
-  </div>
-<pre>{{students|json}}</pre> -->
-
 <h2>Student List</h2>
 <div>
   <mat-list *ngFor="let student of students; let i = index">

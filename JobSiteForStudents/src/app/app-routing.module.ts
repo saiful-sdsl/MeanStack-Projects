@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { StudentprofilesComponent } from './studentprofiles/studentprofiles.component';
+import { UpdatestudentComponent } from './updatestudent/updatestudent.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'randomgenerator', component: RandomgenComponent },
   { path: 'cardtypedetector', component: CardtypedetectorComponent },
   { path: 'students', component: StudentprofilesComponent },
+  { path: 'update', component: UpdatestudentComponent },
   { path : '', component : RegistrationComponent}
 
 ];

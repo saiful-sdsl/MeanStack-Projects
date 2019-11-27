@@ -21,12 +21,9 @@ export class StudentService {
       .post(this.geturl, { studentID, firstName, lastName, email, specialization, education, phoneNumber, selfIntro });
   }
 
-  updateStudent(id: string, firstName: string, lastName: string) {
-    /* this.http
-      .post(this.geturl, { id, firstName, lastName })
-      .subscribe(responseData => {
-        console.log(responseData);
-      }); */
+  updateStudent(studentID: string, firstName: string, lastName: string, email: string, specialization: string, education: string, phoneNumber: string, selfIntro: string) {
+    return this.http
+      .put(this.geturl + "/" + studentID, { studentID, firstName, lastName, email, specialization, education, phoneNumber, selfIntro })
   }
 
   deleteStudent(studentId: string) {
