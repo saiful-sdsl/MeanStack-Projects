@@ -76,29 +76,38 @@ app.delete("/students/:id", (req, res, next) => {
 
 app.put("/students/:id", (req, res, next) => {
   console.log("Update a Student. ID : " + req.params.id);
-  student.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        specialization: req.body.specialization,
-        education: req.body.education,
-        phoneNumber: req.body.phoneNumber,
-        selfIntro: req.body.selfIntro
+  student
+    .findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          specialization: req.body.specialization,
+          education: req.body.education,
+          phoneNumber: req.body.phoneNumber,
+          selfIntro: req.body.selfIntro
+        }
+      },
+      {
+        new: true
       }
-    },
-    {
-      new: true
-    },
-    {
-      function(err, updatedStudent) {
-        if (err) return res.send("Error Updating student: " + err);
-        else return res.send.json("Update successful : " + updatedStudent);
+    )
+    .then(updatedStudent => {
+      if (updatedStudent) {
+        //what was updated
+        console.log("Record updated!");
+        res
+        .status(200)
+        .json("A student record has been Updated! Updated Info: " + updatedStudent);
+      } else {
+        console.log("no data exist for this id");
       }
-    }
-  );
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 app.use("/students", (req, res, next) => {
@@ -112,3 +121,10 @@ app.use("/students", (req, res, next) => {
 });
 
 module.exports = app;
+
+/* {
+  function(err, updatedStudent) {
+    if (err) return res.send("Error Updating student: " + err);
+    else return res.send.json("Update successful : " + updatedStudent);
+  }
+} */

@@ -41,18 +41,7 @@ export class UpdatestudentComponent implements OnInit {
   }
 
   onUpdateClick() {
-    this.studentService.updateStudent(
-      this.studentID,
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.specialization,
-      this.education,
-      this.phoneNumber,
-      this.selfIntro
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });;
+    
     console.log(
       "You entered below info > " +
         "\nFirst Name: " +

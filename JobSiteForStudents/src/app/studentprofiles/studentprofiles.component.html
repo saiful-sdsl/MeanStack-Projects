@@ -1,28 +1,44 @@
-<h2>Student List</h2>
+<h3>Student List</h3>
 <div>
   <mat-list *ngFor="let student of students; let i = index">
     <mat-list-item>
-      ● Student record: {{ student._id }} <br />
-      Student ID: {{ student.studentID }} <br />
-      Name: {{ student.lastName }}, {{ student.firstName }} <br />
-      Email: {{ student.email }} <br />
-      Specialization: {{ student.specialization }} <br />
-      Education level: {{ student.education }} <br />
-      Contact No: {{ student.phoneNumber }} <br />
-      Self Introduction: {{ student.selfIntro }} <br />
-      <div>
+      <h1 matLine> Student record: {{ student._id }}</h1>
+      <h2 matLine>Name: {{ student.lastName }}, {{ student.firstName }}</h2>
+      <p matLine>
+        Student ID: {{ student.studentID }} <br />
+        Email: {{ student.email }} <br />
+        Specialization: {{ student.specialization }} <br />
+        Education level: {{ student.education }} <br />
+        Contact No: {{ student.phoneNumber }} <br />
+        Self Introduction: {{ student.selfIntro }} <br />
         <button mat-raised-button color="warn" (click)="onDelete(student._id)">
-          DELETE
-        </button>
-        <button
-          class="customM"
-          mat-raised-button
-          color="info"
-          (click)="onUpdate(student._id)"
-        >
-          UPDATE
-        </button>
-      </div>
+            DELETE
+          </button>
+          <button
+            class="customM"
+            mat-raised-button
+            color="info"
+            (click)="
+              onUpdate(
+                student._id,
+                student.studentID,
+                student.firstName,
+                student.lastName,
+                student.email,
+                student.specialization,
+                student.education,
+                student.phoneNumber,
+                student.selfIntro
+              )
+            "
+          >
+            UPDATE
+          </button>
+      </p>
+      <p>
+        
+      </p>
+      <div></div>
     </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>

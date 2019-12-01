@@ -6,7 +6,9 @@ body {padding: 20px;}
 .form-control.ng-invalid.ng-touched {
 border: 2px solid red;
 }
-
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
 .registeredlogin {
     margin-left: 10px;
     color: blue;
@@ -44,6 +46,11 @@ border: 2px solid red;
       background-position: 0%;
       width: cover;
       height: 400px;
+  }
+  .profilePic{
+    background-image: url('assets/ico_student.png');
+      width: 84px;
+      height: 84px;
   }
 
   .login-main{

@@ -24,6 +24,7 @@ import { DetectcardtypeDirective } from './detectcardtype.directive';
 import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdatestudentComponent } from './updatestudent/updatestudent.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UpdatestudentComponent } from './updatestudent/updatestudent.component'
     RandomgenComponent,
     CardtypedetectorComponent,
     DetectcardtypeDirective,
-    UpdatestudentComponent
+    UpdatestudentComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

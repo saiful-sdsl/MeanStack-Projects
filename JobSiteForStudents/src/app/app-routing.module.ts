@@ -9,10 +9,12 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { StudentprofilesComponent } from './studentprofiles/studentprofiles.component';
 import { UpdatestudentComponent } from './updatestudent/updatestudent.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 
   { path: 'registration', component: RegistrationComponent },
+  { path: 'editStudent/:_id/:_studentID/:_firstName/:_lastName/:_email/:_specialization/:_education/:_phoneNumber/:_selfIntro', component: RegistrationComponent, pathMatch: 'full'},  // edit student information.
   { path: 'login', component: LoginComponent },
   { path: 'jobs', component: SearchjobsComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: 'cardtypedetector', component: CardtypedetectorComponent },
   { path: 'students', component: StudentprofilesComponent },
   { path: 'update', component: UpdatestudentComponent },
-  { path : '', component : RegistrationComponent}
+  { path: '', component: RegistrationComponent },
+  { path : '**', component : NotFoundComponent}
 
 ];
 // const routes: Routes = [];

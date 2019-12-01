@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { StudentService } from "../student.service";
+import { Router, ParamMap, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-registration",
@@ -7,8 +8,44 @@ import { StudentService } from "../student.service";
   styleUrls: ["./registration.component.css"]
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private studentService: StudentService) {}
-  ngOnInit() {}
+  private mode = "update";
+  private title = "New Student Registration";
+  private id: string;
+
+  constructor(
+    private studentService: StudentService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      console.log(
+        "onngOnInit: " +
+          paramMap.get("_id") +
+          " firstName: " +
+          paramMap.get("_firstName") +
+          " education: " +
+          paramMap.get("_education")
+      );
+      if (paramMap.has("_id")) {
+        this.title = "Update Student Registration";
+        this.mode = "Update";
+        this.id = paramMap.get("_id");
+        this.studentID = paramMap.get("_studentID");
+        this.firstName = paramMap.get("_firstName");
+        this.lastName = paramMap.get("_lastName");
+        this.email = paramMap.get("_email");
+        this.specialization = paramMap.get("_specialization");
+        this.education = paramMap.get("_education");
+        this.phoneNumber = paramMap.get("_phoneNumber");
+        this.selfIntro = paramMap.get("_selfIntro");
+      } else {
+        this.title = "New Student Registration";
+        this.mode = "Register";
+        this.id = null;
+      }
+    });
+  }
 
   minCharacterLength: number = 2;
   firstNameHint: string = "Enter first name";
@@ -39,18 +76,21 @@ export class RegistrationComponent implements OnInit {
   }
 
   onClick() {
-    this.studentService.addStudent(
-      this.studentID,
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.specialization,
-      this.education,
-      this.phoneNumber,
-      this.selfIntro
-    ).subscribe(responseData => {
-      console.log(responseData);
-    });;
+    if(this.mode == 'Register'){
+      this.studentService
+      .addStudent(
+        this.studentID,
+        this.firstName,
+        this.lastName,
+        this.email,
+        this.specialization,
+        this.education,
+        this.phoneNumber,
+        this.selfIntro
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
     console.log(
       "You entered below info > " +
         "\nFirst Name: " +
@@ -68,7 +108,28 @@ export class RegistrationComponent implements OnInit {
         "\nIntro: " +
         this.selfIntro
     );
-/*     alert(
+    this.router.navigate(["/students"]);
+    } else {
+      this.studentService
+      .updateStudent(
+        this.id,
+        this.studentID,
+        this.firstName,
+        this.lastName,
+        this.email,
+        this.specialization,
+        this.education,
+        this.phoneNumber,
+        this.selfIntro
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+        this.router.navigate(["/students"]);
+      });
+
+    }
+    
+    /*     alert(
       "You entered below info > " +
         "\nFirst Name: " +
         this.firstName +

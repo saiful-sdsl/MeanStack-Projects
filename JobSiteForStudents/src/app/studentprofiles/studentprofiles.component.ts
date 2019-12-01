@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { StudentService } from "../student.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-studentprofiles",
@@ -12,7 +13,7 @@ export class StudentprofilesComponent implements OnInit {
   viewModel = "Home";
   public students;
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService, private router: Router) {}
 
   ngOnInit() {
     this.getStudents();
@@ -33,13 +34,36 @@ export class StudentprofilesComponent implements OnInit {
     console.log("onDelete item triggered. id: " + id);
     this.studentService.deleteStudent(id).subscribe(() => {
       console.log("Deleted msg from profile.ts file : " + id);
-      setTimeout(function(){
+      setTimeout(function() {
         location.reload();
       }, 800);
-    });;
+    });
   }
 
-  onUpdate(id: string){
-    console.log('Go to updated student page. id: '  + id);
+  onUpdate(
+    id: string,
+    studentID: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    specialization: string,
+    education: string,
+    phoneNumber: string,
+    selfIntro: string
+  ) {
+    this.router.navigate([
+      "/editStudent",
+      id,
+      studentID,
+      firstName,
+      lastName,
+      email,
+      specialization,
+      education,
+      phoneNumber,
+      selfIntro
+    ]);
+    console.log("Go for update student information. id: " + id);
   }
 }
+/*  */

@@ -1,5 +1,5 @@
-<h2>New Student Registration <br></h2>
-<label >Please insert your information to register.</label>
+<h2>{{title}}<br></h2>
+<!-- <label >Please insert your information to {{mode}}.</label> -->
 <!-- First Name -->
 <form>
   <div class="form-group">
@@ -278,7 +278,7 @@
   <!-- <button class="btn btn-primary">Register</button> -->
   <button 
   class="btn btn-primary"
-  (click)="onClick()">Register</button>
+  (click)="onClick()">{{mode}}</button>
 <!--   <label class="registeredlogin" for="alreadyRegistered">Already Registered? Login here.</label> -->
   
 <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
