@@ -9,6 +9,7 @@ import { Router, ParamMap, ActivatedRoute } from "@angular/router";
 })
 export class RegistrationComponent implements OnInit {
   private mode = "update";
+  private response = "";
   private title = "New Student Registration";
   private id: string;
 
@@ -74,60 +75,90 @@ export class RegistrationComponent implements OnInit {
   logComment(x) {
     this.logName(x);
   }
+  isEmpty(str) {
+    return (!str || 0 === str.length);
+}
 
   onClick() {
-    if(this.mode == 'Register'){
-      this.studentService
-      .addStudent(
-        this.studentID,
-        this.firstName,
-        this.lastName,
-        this.email,
-        this.specialization,
-        this.education,
-        this.phoneNumber,
-        this.selfIntro
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
-    console.log(
-      "You entered below info > " +
-        "\nFirst Name: " +
-        this.firstName +
-        "\nLast Name: " +
-        this.lastName +
-        "\nEmail: " +
-        this.email +
-        "\nSpecialization: " +
-        this.specialization +
-        "\nEducation: " +
-        this.education +
-        "\nPhone: " +
-        this.phoneNumber +
-        "\nIntro: " +
-        this.selfIntro
-    );
-    this.router.navigate(["/students"]);
+    if(this.isEmpty(this.studentID) || this.isEmpty(this.firstName) || this.isEmpty(this.email) || this.isEmpty(this.phoneNumber)){
+      alert("Error: Please check your inputs! Thanks.");
     } else {
-      this.studentService
-      .updateStudent(
-        this.id,
-        this.studentID,
-        this.firstName,
-        this.lastName,
-        this.email,
-        this.specialization,
-        this.education,
-        this.phoneNumber,
-        this.selfIntro
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-        this.router.navigate(["/students"]);
-      });
-
+      if(this.mode == 'Register'){
+        this.studentService
+        .addStudent(
+          this.studentID,
+          this.firstName,
+          this.lastName,
+          this.email,
+          this.specialization,
+          this.education,
+          this.phoneNumber,
+          this.selfIntro
+        )
+        .subscribe(responseData => {
+          this.response = responseData.toString();
+          console.log(responseData);
+          if(this.response.search("ValidationError") == -1){
+            console.log("String did not match.");
+            this.router.navigate(["/students"]);
+            
+          } else {
+            alert("Error: Please check your inputs! Thanks.");
+            console.log("String matched.");
+            
+          }
+        });
+      console.log(
+        "You entered below info > " +
+          "\nFirst Name: " +
+          this.firstName +
+          "\nLast Name: " +
+          this.lastName +
+          "\nEmail: " +
+          this.email +
+          "\nSpecialization: " +
+          this.specialization +
+          "\nEducation: " +
+          this.education +
+          "\nPhone: " +
+          this.phoneNumber +
+          "\nIntro: " +
+          this.selfIntro
+      );
+      
+      } else {
+        this.studentService
+        .updateStudent(
+          this.id,
+          this.studentID,
+          this.firstName,
+          this.lastName,
+          this.email,
+          this.specialization,
+          this.education,
+          this.phoneNumber,
+          this.selfIntro
+        )
+        .subscribe(responseData => {
+          this.response = responseData.toString();
+  
+          if(this.response.search("ValidationError") == -1){
+            console.log("String did not match.");
+            this.router.navigate(["/students"]);
+            
+          } else {
+            alert("Error: Please check your inputs! Thanks.");
+            console.log("String matched.");
+            
+          }
+          console.log(responseData);
+  
+          
+        });
+  
+      }
     }
+    
     
     /*     alert(
       "You entered below info > " +
@@ -147,4 +178,6 @@ export class RegistrationComponent implements OnInit {
         this.selfIntro
     ); */
   }
+
+  
 }
