@@ -121,10 +121,3 @@ app.use("/students", (req, res, next) => {
 });
 
 module.exports = app;
-
-/* {
-  function(err, updatedStudent) {
-    if (err) return res.send("Error Updating student: " + err);
-    else return res.send.json("Update successful : " + updatedStudent);
-  }
-} */

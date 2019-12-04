@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { StudentService } from "../student.service";
 import { Router, ParamMap, ActivatedRoute } from "@angular/router";
+import { MatSnackBar } from '@angular/material';
+import { SnackBarMessageComponent } from '../snack-bar-message/snack-bar-message.component';
 
 @Component({
   selector: "app-registration",
@@ -12,11 +14,13 @@ export class RegistrationComponent implements OnInit {
   private response = "";
   private title = "New Student Registration";
   private id: string;
+  durationInSeconds = 5;
 
   constructor(
     private studentService: StudentService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -76,108 +80,89 @@ export class RegistrationComponent implements OnInit {
     this.logName(x);
   }
   isEmpty(str) {
-    return (!str || 0 === str.length);
-}
-
+    return !str || 0 === str.length;
+  }
+  openSnackBar() {
+    this._snackBar.openFromComponent(SnackBarMessageComponent, {
+      duration: this.durationInSeconds * 1000,
+    });
+  }
   onClick() {
-    if(this.isEmpty(this.studentID) || this.isEmpty(this.firstName) || this.isEmpty(this.email) || this.isEmpty(this.phoneNumber)){
-      alert("Error: Please check your inputs! Thanks.");
+    if (
+      this.isEmpty(this.studentID) ||
+      this.isEmpty(this.firstName) ||
+      this.isEmpty(this.email) ||
+      this.isEmpty(this.phoneNumber)
+    ) {
+      //alert("Error: Please check your inputs! Thanks.");
+      this.openSnackBar();
     } else {
-      if(this.mode == 'Register'){
+      if (this.mode == "Register") {
         this.studentService
-        .addStudent(
-          this.studentID,
-          this.firstName,
-          this.lastName,
-          this.email,
-          this.specialization,
-          this.education,
-          this.phoneNumber,
-          this.selfIntro
-        )
-        .subscribe(responseData => {
-          this.response = responseData.toString();
-          console.log(responseData);
-          if(this.response.search("ValidationError") == -1){
-            console.log("String did not match.");
-            this.router.navigate(["/students"]);
-            
-          } else {
-            alert("Error: Please check your inputs! Thanks.");
-            console.log("String matched.");
-            
-          }
-        });
-      console.log(
-        "You entered below info > " +
-          "\nFirst Name: " +
-          this.firstName +
-          "\nLast Name: " +
-          this.lastName +
-          "\nEmail: " +
-          this.email +
-          "\nSpecialization: " +
-          this.specialization +
-          "\nEducation: " +
-          this.education +
-          "\nPhone: " +
-          this.phoneNumber +
-          "\nIntro: " +
-          this.selfIntro
-      );
-      
+          .addStudent(
+            this.studentID,
+            this.firstName,
+            this.lastName,
+            this.email,
+            this.specialization,
+            this.education,
+            this.phoneNumber,
+            this.selfIntro
+          )
+          .subscribe(responseData => {
+            this.response = responseData.toString();
+            console.log(responseData);
+            if (this.response.search("ValidationError") == -1) {
+              console.log("String did not match.");
+              this.router.navigate(["/students"]);
+            } else {
+              alert("Error: Please check your inputs! Thanks.");
+              console.log("String matched.");
+            }
+          });
+        console.log(
+          "You entered below info > " +
+            "\nFirst Name: " +
+            this.firstName +
+            "\nLast Name: " +
+            this.lastName +
+            "\nEmail: " +
+            this.email +
+            "\nSpecialization: " +
+            this.specialization +
+            "\nEducation: " +
+            this.education +
+            "\nPhone: " +
+            this.phoneNumber +
+            "\nIntro: " +
+            this.selfIntro
+        );
       } else {
         this.studentService
-        .updateStudent(
-          this.id,
-          this.studentID,
-          this.firstName,
-          this.lastName,
-          this.email,
-          this.specialization,
-          this.education,
-          this.phoneNumber,
-          this.selfIntro
-        )
-        .subscribe(responseData => {
-          this.response = responseData.toString();
-  
-          if(this.response.search("ValidationError") == -1){
-            console.log("String did not match.");
-            this.router.navigate(["/students"]);
-            
-          } else {
-            alert("Error: Please check your inputs! Thanks.");
-            console.log("String matched.");
-            
-          }
-          console.log(responseData);
-  
-          
-        });
-  
+          .updateStudent(
+            this.id,
+            this.studentID,
+            this.firstName,
+            this.lastName,
+            this.email,
+            this.specialization,
+            this.education,
+            this.phoneNumber,
+            this.selfIntro
+          )
+          .subscribe(responseData => {
+            this.response = responseData.toString();
+
+            if (this.response.search("ValidationError") == -1) {
+              console.log("String did not match.");
+              this.router.navigate(["/students"]);
+            } else {
+              alert("Error: Please check your inputs! Thanks.");
+              console.log("String matched.");
+            }
+            console.log(responseData);
+          });
       }
     }
-    
-    
-    /*     alert(
-      "You entered below info > " +
-        "\nFirst Name: " +
-        this.firstName +
-        "\nLast Name: " +
-        this.lastName +
-        "\nEmail: " +
-        this.email +
-        "\nSpecialization: " +
-        this.specialization +
-        "\nEducation: " +
-        this.education +
-        "\nPhone: " +
-        this.phoneNumber +
-        "\nIntro: " +
-        this.selfIntro
-    ); */
   }
-
-  
 }

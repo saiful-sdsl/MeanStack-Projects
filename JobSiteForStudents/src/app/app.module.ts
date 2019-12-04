@@ -25,6 +25,9 @@ import { StudentService } from './student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdatestudentComponent } from './updatestudent/updatestudent.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SnackBarMessageComponent } from './snack-bar-message/snack-bar-message.component';
+import { MessageComponent } from './message/message.component';
+import { MessageService } from './message.service';
 
 
 @NgModule({
@@ -42,8 +45,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CardtypedetectorComponent,
     DetectcardtypeDirective,
     UpdatestudentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SnackBarMessageComponent,
+    MessageComponent
   ],
+  entryComponents: [SnackBarMessageComponent],
+
   imports: [
     CommonModule,
     BrowserModule,

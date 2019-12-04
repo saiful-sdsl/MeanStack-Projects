@@ -6,6 +6,22 @@ body {padding: 20px;}
 .form-control.ng-invalid.ng-touched {
 border: 2px solid red;
 }
+
+.buttongroupblock {
+  display: flex; /* Make the buttons appear below each other */
+  height: 800px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.example-card {
+  max-width: 200px!important;
+  box-sizing: border-box;
+}
+
+
 .mat-list-icon {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -22,6 +38,14 @@ border: 2px solid red;
   margin-left: 20px;
   color: blue;
 }
+.center {
+  display: flex;
+  height: 800px;
+  background-color: #d0eff7;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .mat-divider {
   color: blue;
@@ -35,6 +59,9 @@ border: 2px solid red;
 
 .goodscore {
   color: green;
+}
+.white {
+  color: rgb(255, 123, 0);
 }
 .passedscore {
   color: rgb(11, 126, 219);

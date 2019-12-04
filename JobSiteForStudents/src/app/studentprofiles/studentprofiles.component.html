@@ -1,46 +1,52 @@
-<h3>Student List</h3>
+<h3>Student List <br/></h3>
+<h3></h3>
 <div>
   <mat-list *ngFor="let student of students; let i = index">
+      <mat-card class="example-card">
     <mat-list-item>
-      <h1 matLine> Student record: {{ student._id }}</h1>
-      <h2 matLine>Name: {{ student.lastName }}, {{ student.firstName }}</h2>
-      <p matLine>
-        Student ID: {{ student.studentID }} <br />
-        Email: {{ student.email }} <br />
-        Specialization: {{ student.specialization }} <br />
-        Education level: {{ student.education }} <br />
-        Contact No: {{ student.phoneNumber }} <br />
-        Self Introduction: {{ student.selfIntro }} <br />
-        <button mat-raised-button color="warn" (click)="onDelete(student._id)">
-            DELETE
-          </button>
-          <button
-            class="customM"
-            mat-raised-button
-            color="info"
-            (click)="
-              onUpdate(
-                student._id,
-                student.studentID,
-                student.firstName,
-                student.lastName,
-                student.email,
-                student.specialization,
-                student.education,
-                student.phoneNumber,
-                student.selfIntro
-              )
-            "
-          >
-            UPDATE
-          </button>
-      </p>
-      <p>
-        
-      </p>
-      <div></div>
+      
+            <h4 matLine>Student record: {{ student._id }}</h4>
+            <h2 matLine>Name: {{ student.lastName }}, {{ student.firstName }}</h2>
+            <p matLine>
+              Student ID: {{ student.studentID }} <br />
+              Email: {{ student.email }} <br />
+              Specialization: {{ student.specialization }} <br />
+              Education level: {{ student.education }} <br />
+              Contact No: {{ student.phoneNumber }} <br />
+              Self Introduction: {{ student.selfIntro }} <br />
+              <mat-card-actions align="end">
+              
+                  <button mat-raised-button color="warn" (click)="onDelete(student._id)">
+                      DELETE
+                    </button>
+                    <button
+                      
+                      mat-raised-button
+                      color="primary"
+                      (click)="
+                        onUpdate(
+                          student._id,
+                          student.studentID,
+                          student.firstName,
+                          student.lastName,
+                          student.email,
+                          student.specialization,
+                          student.education,
+                          student.phoneNumber,
+                          student.selfIntro
+                        )
+                      "
+                    >
+                      UPDATE
+                    </button>
+                </mat-card-actions>
+              
+            </p>
+            <p></p>
+            <div></div>
+  
+      
     </mat-list-item>
-    <mat-divider></mat-divider>
+  </mat-card>
   </mat-list>
 </div>
-<!-- <pre>{{students|json}}</pre> -->
