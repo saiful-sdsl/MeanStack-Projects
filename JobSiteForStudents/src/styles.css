@@ -19,6 +19,7 @@ border: 2px solid red;
 .example-card {
   max-width: 200px!important;
   box-sizing: border-box;
+  background: rgb(135, 210, 240);
 }
 
 
