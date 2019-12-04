@@ -15,16 +15,29 @@ border: 2px solid red;
   align-items: center;
   flex-direction: column;
 }
-
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
 .example-card {
   max-width: 200px!important;
   box-sizing: border-box;
   background: rgb(135, 210, 240);
 }
 
+.example-card_dashboard {
+  max-width: 50px!important;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.dashboardbackground {
+  background: lightgray;
+}
+
 
 .mat-list-icon {
-  color: rgba(0, 0, 0, 0.54);
+  color: #04b5fc;
 }
 .registeredlogin {
     margin-left: 10px;

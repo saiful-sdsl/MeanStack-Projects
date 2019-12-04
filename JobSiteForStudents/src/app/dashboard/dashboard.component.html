@@ -1,13 +1,38 @@
-<mat-card>
+<mat-card >
     <mat-grid-list cols="3">
-     <mat-grid-tile [style.border-right]="'1px dashed #ddd'">
-       John
+     <mat-grid-tile [style.border-right]="'1px dashed #05bafe'">
+        <mat-card class="example-card_dashboard" (click)= "gotoRegistration()">
+        
+            <img mat-card-image src="./assets/student_reg_1.png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                Student Registration
+              </p>
+            </mat-card-content>
+          </mat-card>
+          
      </mat-grid-tile>
-     <mat-grid-tile [style.border-right]="'1px dashed #ddd'">
-       Paul
+     <mat-grid-tile [style.border-right]="'1px dashed #05bafe'">
+        <mat-card class="example-card_dashboard" (click)="gotListOfStudent()">
+        
+            <img mat-card-image src="./assets/student_list_512.png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                Student List
+              </p>
+            </mat-card-content>
+          </mat-card>
      </mat-grid-tile>
      <mat-grid-tile>
-       Ringo
+        <mat-card class="example-card_dashboard" (click) = "gotoAboutUs()">
+        
+            <img mat-card-image src="./assets/info_.png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                About
+              </p>
+            </mat-card-content>
+          </mat-card>
      </mat-grid-tile>
     </mat-grid-list>
   </mat-card>

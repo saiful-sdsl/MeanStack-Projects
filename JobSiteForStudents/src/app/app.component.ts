@@ -10,7 +10,7 @@ export class AppComponent {
   currentPath = "";
   title = "Design Studio Course";
   cardNumberInputHint: string = "Enter card number here";
-  viewModel = "registration";
+  viewModel = "dashboard";
   constructor(router: Router) { 
     router.events.subscribe((url:any) => {
       this.currentPath = url.url;
@@ -18,6 +18,12 @@ export class AppComponent {
         
       } else {
         console.log("PATH: " + this.currentPath);
+        if((this.currentPath == "/")){
+          this.viewModel = "dashboard"
+        } else {
+          
+        }
+
         if((this.currentPath.search("aboutus") == -1)){
           
         } else {
@@ -31,6 +37,10 @@ export class AppComponent {
         if((this.currentPath.search("registration") == -1)) {
         } else {
           this.viewModel = "registration"
+        }
+        if((this.currentPath.search("dashboard") == -1)) {
+        } else {
+          this.viewModel = "dashboard"
         }
       }
       

@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'cardtypedetector', component: CardtypedetectorComponent },
   { path: 'students', component: StudentprofilesComponent },
   { path: 'update', component: UpdatestudentComponent },
-  { path: '', component: RegistrationComponent },
+  { path: '', component: DashboardComponent },
   { path : '**', component : NotFoundComponent}
 
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -8,7 +9,7 @@ import { MessageService } from '../message.service';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -16,6 +17,7 @@ export class NotFoundComponent implements OnInit {
   sendMessage(): void {
     // send message to subscribers via observable subject
     console.log('Goto home');
+    this.router.navigate(["/dashboard"]);
   //this.service.sendMessage('Message from app Component to message Component!');   
   }
    /*
